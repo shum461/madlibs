@@ -33,6 +33,17 @@ server <- function(input, output) {
   output$story <- renderText({
     story()
   })
+
+observe({
+  req(story())
+  if(input$noun1 == "robot") {
+    print("🤖")
+  } else {
+    print("🐶")
+  }
+})
+  
+  
 }
 
 shinyApp(ui = ui, server = server)
